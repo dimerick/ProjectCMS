@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% load staticfiles %}
+{% load sekizai_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block css %}
+    {% addtoblock "css" %}
+<style>
+
+
+</style>
+    {% endaddtoblock "css" %}
+{% endblock css %}
+
+{% block content %}
+
+<div class="cmsms_row_outer_parent">
+								<div class="cmsms_row_outer">
+
+<div class="content_wrap fullwidth">
+<!--_________________________ Start Content _________________________ -->
+<div class="middle_content entry" role="main">
+
+	{% placeholder "content" %}
+
+</div>
+<!-- _________________________ Finish Content _________________________ -->
+</div>
+
+</div>
+</div>
+{% endblock content %}
+
+{% block js %}
+    {% addtoblock "js" %}
+<script>
+
+
+</script>
+    {% endaddtoblock "js" %}
+{% endblock js %}

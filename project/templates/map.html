@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% load staticfiles %}
+{% load sekizai_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{#{% block css %}#}
+{##}
+{##}
+{#{% endblock css %}#}
+
+
+
+
+{% block content %}
+    {% addtoblock "css" %}
+        <link href="{% static "css/leaflet.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+    {% addtoblock "css" %}
+        <link href="{% static "css/iconLayers.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+     {% addtoblock "css" %}
+        <link href="{% static "css/Control.FullScreen.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+    {% addtoblock "css" %}
+        <link href="{% static "css/MarkerCluster.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+    {% addtoblock "css" %}
+        <link href="{% static "css/MarkerCluster.Default.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+    {% addtoblock "css" %}
+        <link href="{% static "css/leaflet-search.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+
+{% addtoblock "css" %}
+        <link href="{% static "css/lightbox.min.css" %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+
+    {% addtoblock "css" %}
+        <style>
+        #map{
+    width: 100%;
+    height: 500px;
+    background-color: #e2dce2;
+    z-index: 1;
+}
+        </style>
+    {% endaddtoblock "css" %}
+
+                            <div id="map"> </div>
+
+
+    {% addtoblock "js" %}
+<script src="{% static "js/leaflet.js" %}"></script>
+{% endaddtoblock "js" %}
+
+{% addtoblock "js" %}
+<script src="{% static "js/proj4.js" %}"></script>
+{% endaddtoblock "js" %}
+
+{% addtoblock "js" %}
+<script src="{% static "js/iconLayers.js" %}"></script>
+{% endaddtoblock "js" %}
+
+{% addtoblock "js" %}
+<script src="{% static "js/Control.FullScreen.js" %}"></script>
+{% endaddtoblock "js" %}
+
+
+{% addtoblock "js" %}
+<script src="{% static "js/leaflet.markercluster.js" %}"></script>
+{% endaddtoblock "js" %}
+
+{% addtoblock "js" %}
+<script src="{% static "js/proj4leaflet.js" %}"></script>
+{% endaddtoblock "js" %}
+
+{% addtoblock "js" %}
+<script src="{% static "js/leaflet-search.js" %}"></script>
+{% endaddtoblock "js" %}    
+
+{% addtoblock "js" %}
+<script src="{% static "js/lightbox.min.js" %}"></script>
+{% endaddtoblock "js" %}
+
+    {% addtoblock "js" %}
+ <script src="{% static "js/map.js" %}"></script>
+{% endaddtoblock "js" %}
+
+
+{% endblock content %}
+
+
+
+{#{% block js %}#}
+{##}
+{#    #}
+{##}
+{#{% endblock js %}#}

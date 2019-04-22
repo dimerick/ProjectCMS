@@ -1,0 +1,56 @@
+
+
+<div id="cmsms_row_55544abfbd039" class="cmsms_row cmsms_color_scheme_default partners">
+							<div class="cmsms_row_outer_parent">
+								<div class="cmsms_row_outer">
+									<div class="cmsms_row_inner">
+										<div class="cmsms_row_margin">
+											<div class="cmsms_column one_first">
+												<h3 id="cmsms_heading_55544abfbd262" class="cmsms_heading cmsms_valid_title">Partners</h3>
+												<script type="text/javascript">
+                                                    jQuery(document).ready(function (){
+                                                        jQuery("#cmsms_clients_55544abfbd2fc").owlCarousel({
+                                                            singleItem : false,
+                                                            items : 5,
+                                                            itemsDesktopSmall : [768,2],
+                                                            itemsTablet: [540,1],
+                                                            slideSpeed : 1000,
+                                                            paginationSpeed : 1000,
+                                                            autoPlay : true,
+                                                            stopOnHover: true,
+                                                            pagination: false,
+                                                            navigationText : [ "<span class=\"cmsms_prev_arrow\"></span>", "<span class=\"cmsms_next_arrow\"></span>" ]
+                                                        });
+                                                    });
+												</script>
+												<div class="cmsms_clients_slider_wrap">
+													<div id="cmsms_clients_55544abfbd2fc" class="cmsms_clients_slider owl-carousel clients_noborder">
+
+
+														{% if partners %}
+
+    														{% for partner in partners %}
+    															<div class="cmsms_clients_item item">
+															<a href="{{partner.url}}" target="_blank">
+																<img src="{{partner.image.url}}" alt="{{partner.name}}" title="{{partner.name}}" />
+															</a>
+														</div>
+    														{% endfor %}
+
+														{% else %}
+														    There are no published Partners
+														{% endif %}
+											
+
+
+													</div>
+
+
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>

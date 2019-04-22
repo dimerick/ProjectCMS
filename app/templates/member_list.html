@@ -1,0 +1,39 @@
+<div class="cmsms_profile vertical" data-animation="fadeInUp" data-delay="0">
+
+														{% if members %}
+
+
+    														{% for member in members %}
+    															<article class="{% if member.side == 0 %} profile_even{% endif %} format-profile">
+														<div class="pl_content">
+															<h3 class="entry-title cmsms_valid_title">
+																<a href="{{member.url_profile}}">{{member.name}}</a>
+															</h3>
+															<h4 class="pl_subtitle">{{member.rol}}</h4>
+															<h5 class="pl_subtitle">{{member.email}}</h5>
+															<div class="entry-content">{{member.description}}</div>
+														</div>
+														<div class="pl_img">
+															<figure>
+																<a href="{{member.url_profile}}">
+																	<img width="250" height="250" src="{{member.image.url}}" class="attachment-square-thumb" alt="{{member.name}}" title="{{member.name}}" />
+																</a>
+															</figure>
+														</div>
+														<div class="pl_social">
+
+														</div>
+														<div class="cl"></div>
+													</article>
+    														{% endfor %}
+
+														{% else %}
+														    There are no published Team Members
+														{% endif %}
+
+
+													
+
+
+
+												</div>

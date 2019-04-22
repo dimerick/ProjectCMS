@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% load staticfiles %}
+{% load sekizai_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block css %}
+    {% addtoblock "css" %}
+<style>
+
+
+</style>
+    {% endaddtoblock "css" %}
+{% endblock css %}
+
+{% block content %}
+	{% placeholder "content" %}
+{% endblock content %}
+
+{% block js %}
+    {% addtoblock "js" %}
+<script>
+
+
+</script>
+    {% endaddtoblock "js" %}
+{% endblock js %}

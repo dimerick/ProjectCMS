@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+
+<div id="cmsms_row_1" class="cmsms_row cmsms_color_scheme_default" style="margin: 0px;padding: 0px;">
+							<div class="cmsms_row_outer_parent" style="margin: 0px;padding: 0px;">
+								<div class="cmsms_row_outer" style="margin: 0px;padding: 0px;">
+									<div class="cmsms_row_inner cmsms_row_fullwidth" style="margin: 0px;padding: 0px;">
+										<div class="cmsms_row_margin" style="margin: 0px;padding: 0px;">
+											<div class="cmsms_column one_first" style="margin: 0px;padding: 0px;width: 100%">
+												<div class="cmsms_slider" style="margin: 0px;padding: 0px;">
+													<script type="text/javascript">var lsjQuery = jQuery;</script>
+													<script type="text/javascript"> 
+														lsjQuery(document).ready(function() { 
+															if(typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice('layerslider_1','jquery'); } 
+															else { lsjQuery("#layerslider_1").layerSlider({
+																navStartStop: {% if instance.nav_buttons %}true{% else %} false{% endif %}, 
+																navButtons: {% if instance.nav_buttons %}true{% else %} false{% endif %}, 
+																skinsPath: '{% static "LayerSlider/assets/skins/" %}',
+                                                                animateFirstLayer: true
+															})} 
+
+
+
+														}); 
+													</script>
+
+
+{% if slides %}
+<div id="layerslider_{{id_slider}}" class="ls-wp-container" style="width:1920px;height:670px;margin:0 auto;">
+
+    {% for slide in slides %}
+    {% if slide.is_active %}
+
+    
+														
+														<div class="ls-slide" data-ls="slidedelay:8000; transition2d: all;">
+															<img src='{% static "LayerSlider/img/blank.gif" %}' data-src="{{slide.image.url}}" class="ls-bg" alt="bg-blur" />
+															<img class="ls-l" style="top:0px;left:0px;white-space: nowrap;" data-ls="offsetxin:0;delayin:400;offsetxout:0;durationout:1000;parallaxlevel:1;" src='{% static "LayerSlider/img/blank.gif" %}' data-src="{{slide.image.url}}" alt="">
+															<p class="ls-l" style="top:{{slide.top_title}}px;left:{{slide.left_title}}px;font-weight:400;font-family:open sans;font-size:{{slide.size_title}}px;color:{{slide.color_title}};white-space: nowrap;" data-ls="offsetxin:0;durationin:1300;delayin:400;offsetxout:0;">
+																{{slide.title}}</p>
+															
+																<p class="ls-l" style="top:{{slide.top_text}}px;left:{{slide.left_text}}px;font-weight:500;font-family:open sans;font-size:{{slide.size_text}}px;color:{{slide.color_text}};white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:800;offsetxout:0;durationout:0;">{{slide.text}}</p>
+{% if slide.show_button %}
+<div class="ls-l" style="top:{{slide.top_button}}px;left:{{slide.left_button}}px;" class="button_wrap" 
+data-ls="offsetxin:0;durationin:2000;delayin:1200;offsetxout:0;">
+<a href="{{slide.url_button}}" class="cmsms_button" style="background-color:#ffffff;color:{{slide.color_button}};
+border-color:{{slide.color_button}};" color="{{slide.color_button}}">{{slide.text_button}}
+</a>
+</div>
+
+  {% endif %}																
+															
+															
+
+														</div>
+														
+													
+    {% endif %}
+    
+    {% endfor %}
+</div>
+{% else %}
+    There are no slides to show
+{% endif %}
+
+
+													
+
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>

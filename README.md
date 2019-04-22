@@ -1,2 +1,2 @@
-# BOSProjectCMS
-CMS BOSProject
+# ProjectCMS
+Plantilla Estandar CMS

@@ -1,0 +1,44 @@
+{% load sorl_thumbnail  %}
+<div class="portfolio grid large_gap masonry cmsms_4">
+
+	{% if projects %}
+
+	{% for project in projects %}
+	
+<article class="project" data-category="ecology home">
+															<div class="project_outer">
+																<figure class="cmsms_img_rollover_wrap preloader highImg">
+																	
+																	
+{% thumbnail project.image.url "580x460" crop="center" as img %}
+    <img width="580" height="460" src="{{img.url}}" class="full-width" alt="Present for You" title="Present for You" />
+
+ {% endthumbnail %}
+																	
+																	
+																	<div class="cmsms_img_rollover">
+																		<a href="{{project.image.url}}" rel="ilightbox[87_5549b221455ff]" title="Present for You" class="cmsms_image_link">
+																			<span class="cmsms-icon-search-7"></span>
+																		</a>
+																		<a href="{{project.url}}" title="Present for You" class="cmsms_open_link">
+																			<span class="cmsms-icon-attach-6"></span>
+																		</a>
+																	</div>
+																</figure>
+																<div class="project_inner">
+																	<header class="cmsms_project_header entry-header">
+																		<h3 class="cmsms_project_title entry-title">
+																			<a href="{{project.url}}">{{project.name}}</a>
+																		</h3>
+																	</header>																
+																</div>														
+																<div class="cl"></div>
+															</div>
+														</article>
+	{% endfor %}
+
+	{% else %}
+														    There are no published Projects
+														{% endif %}
+
+													</div>

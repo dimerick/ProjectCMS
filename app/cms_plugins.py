@@ -1,8 +1,9 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
+from sorl.thumbnail import get_thumbnail
 
-from .models import SliderActive, Slide, Partner, TeamMember, Activity
+from .models import SliderActive, Slide, Partner, TeamMember, Activity, Project
 
 @plugin_pool.register_plugin
 class MainSliderPlugin(CMSPluginBase):
@@ -82,4 +83,40 @@ class ActivityPlugin(CMSPluginBase):
 			
 		context['activities'] = activities
 		#context['num_partners'] = len(context['partners'])
+		return context
+
+# @plugin_pool.register_plugin
+# class ProjectPlugin(CMSPluginBase):
+# 	model = CMSPlugin
+# 	name = ("Projects Plugin")
+# 	render_template = "project_list.html"
+# 	cache = False
+
+# 	def render(self, context, instance, placeholder):
+# 		context['instance'] = instance
+# 		tmp_projects = Project.objects.filter(is_active=True).order_by('position')
+# 		projects = []
+# 		i = 1
+
+# 		for tp in tmp_projects:
+# 			thumbnail = get_thumbnail(tp.image, '580x460', crop='center', quality=100)
+# 			p = {'name':tp.name, 'description':tp.description, 
+# 			'url': tp.url, 'is_active':tp.is_active, 'image':tp.image, 'thumbnail': thumbnail}
+# 			print(p['name'])
+# 			i = i + 1
+# 			projects.append(p)
+# 		print("len projects: ", len(projects))
+# 		context['projects'] = projects
+
+@plugin_pool.register_plugin
+class ProjectPlugin(CMSPluginBase):
+	model = CMSPlugin
+	name = ("Projects Plugin")
+	render_template = "project_list.html"
+	cache = False
+
+	def render(self, context, instance, placeholder):
+		context['instance'] = instance
+		projects = Project.objects.filter(is_active=True).order_by('position')	
+		context['projects'] = projects		
 		return context

@@ -1,5 +1,3 @@
-$(document).ready(function(){
-
 
 var controlSearchIniatilized = false;
         var numGroups = 0;
@@ -80,7 +78,7 @@ var controlSearchIniatilized = false;
         };
 
         function getGroups(){
-            $.ajax({
+            jQuery.ajax({
                 url:   '/app/groups/',
                 type:  'get',
                 beforeSend: function () {
@@ -166,7 +164,7 @@ var controlSearchIniatilized = false;
         }
 
         function eachGroup(feature, layer){
-            numSitio++;
+            numGroups++;
             if(layer != null){
                 // var lat = feature.geometry.coordinates[1];
                 // var lon = feature.geometry.coordinates[0];
@@ -199,4 +197,3 @@ var controlSearchIniatilized = false;
         getGroups();
 
 
-});

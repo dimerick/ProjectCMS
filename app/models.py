@@ -4,6 +4,8 @@ from djangocms_text_ckeditor.fields import HTMLField
 from filer.fields.image import FilerImageField
 from colorfield.fields import ColorField
 from django.contrib.gis.db import models as models_gis
+from sorl.thumbnail import ImageField
+
 
 
 # Create your models here.

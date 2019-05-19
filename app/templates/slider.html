@@ -10,9 +10,9 @@
 												<div class="cmsms_slider" style="margin: 0px;padding: 0px;">
 													<script type="text/javascript">var lsjQuery = jQuery;</script>
 													<script type="text/javascript"> 
-														lsjQuery(document).ready(function() { 
-															if(typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice('layerslider_1','jquery'); } 
-															else { lsjQuery("#layerslider_1").layerSlider({
+														lsjQuery(document).ready(function() { 														
+															if(typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice('layerslider_{{id_slider}}','jquery'); } 
+															else { lsjQuery("#layerslider_{{id_slider}}").layerSlider({
 																navStartStop: {% if instance.nav_buttons %}true{% else %} false{% endif %}, 
 																navButtons: {% if instance.nav_buttons %}true{% else %} false{% endif %}, 
 																skinsPath: '{% static "LayerSlider/assets/skins/" %}',
@@ -21,7 +21,7 @@
 
 
 
-														}); 
+														});  
 													</script>
 
 

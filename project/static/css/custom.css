@@ -83,3 +83,10 @@ padding-bottom: 40px;
             position: absolute;
             left: -8px;
         }
+
+        .portfolio.grid.masonry .project {
+    opacity: 1!important;
+}
+.portfolio.isotope.cmsms_5 .project, .portfolio.isotope.cmsms_4 .project, .portfolio.isotope.cmsms_3 .project, .portfolio.isotope.cmsms_2 .project {
+    max-width: 300px!important;
+}

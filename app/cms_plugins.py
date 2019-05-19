@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
-from sorl.thumbnail import get_thumbnail
+from easy_thumbnails.files import get_thumbnailer
 
 from .models import SliderActive, Slide, Partner, TeamMember, Activity, Project
 
@@ -115,8 +115,16 @@ class ProjectPlugin(CMSPluginBase):
 	render_template = "project_list.html"
 	cache = False
 
+
 	def render(self, context, instance, placeholder):
 		context['instance'] = instance
-		projects = Project.objects.filter(is_active=True).order_by('position')	
-		context['projects'] = projects		
+		tmp_projects = Project.objects.filter(is_active=True).order_by('position')		
+		
+		projects = []
+		for pro in tmp_projects:
+			thumbnail = get_thumbnailer(pro.image)['project'].url
+			p = {'name':pro.name, 'description':pro.description, 'url': pro.url, 'image':pro.image, 'thumbnail':thumbnail}
+			projects.append(p)
+
+		context['projects'] = projects
 		return context

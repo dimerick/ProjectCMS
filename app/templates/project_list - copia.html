@@ -1,5 +1,5 @@
 {% load thumbnail %}
-<div class="portfolio grid large_gap masonry cmsms_4 isotope">
+<div class="portfolio cmsms_4">
 
 	{% if projects %}
 
@@ -10,11 +10,10 @@
 																<figure class="cmsms_img_rollover_wrap preloader highImg">
 																	
 																	
+{% thumbnail project.image.url "580x460" crop="center" as img %}
+    <img width="580" height="460" src="{{img.url}}" class="full-width" alt="Present for You" title="Present for You" />
 
-    <img width="580" height="460" src="{{project.thumbnail}}" class="full-width" alt="{{project.name}}" title="{{project.name}}" />
-  
-
-
+ {% endthumbnail %}
 																	
 																	
 																	<div class="cmsms_img_rollover">
@@ -31,7 +30,6 @@
 																		<h3 class="cmsms_project_title entry-title">
 																			<a href="{{project.url}}">{{project.name}}</a>
 																		</h3>
-																		<h4>{{project.description}}</h4>
 																	</header>																
 																</div>														
 																<div class="cl"></div>
